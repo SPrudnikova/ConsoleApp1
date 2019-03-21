@@ -61,11 +61,8 @@ namespace hw_05
             PrintArray(userArr);
             Console.WriteLine();
 
-            Console.WriteLine($"Enter insert index from 0 to {arrSize - 1}:");
-            int insertIndex = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("Enter integer to insert");
-            int insertValue = Convert.ToInt32(Console.ReadLine());
+            int insertIndex = RequestInteger($"Enter insert index from 0 to {arrSize - 1}:", 0, arrSize);
+            int insertValue = RequestInteger("Enter integer to insert:");
 
             Insert(userArr, insertIndex, insertValue);
 
@@ -99,7 +96,7 @@ namespace hw_05
 
         public static int[] Insert(int[] arr, int index, int value)
         {
-            for (int i = arr.Length - 1; i >= index; i--)
+            for (int i = arr.Length - 1; i >= index && i > 0; i--)
             {
                 arr[i] = arr[i - 1];
             }
@@ -112,7 +109,7 @@ namespace hw_05
         {
             for (int i = from; i < to; i++)
             {
-                arr[i] = Convert.ToInt32(Console.ReadLine());
+                arr[i] = RequestInteger();
             }
 
             return arr;
@@ -142,6 +139,71 @@ namespace hw_05
             }
 
             return arr;
+        }
+
+        public static int RequestInteger()
+        {
+            int value;
+
+            while (true)
+            {
+                string userInput = Console.ReadLine();
+                if (int.TryParse(userInput, out value))
+                {
+                    return value;
+                }
+                else
+                {
+                    Console.WriteLine("Entered value is not valid. Enter integer please.");
+                }
+            }
+
+        }
+
+        public static int RequestInteger(string requestTitle)
+        {
+            int value;
+
+            while (true)
+            {
+                Console.WriteLine(requestTitle);
+                string userInput = Console.ReadLine();
+                if (int.TryParse(userInput, out value))
+                {
+                    return value;
+                }
+                else
+                {
+                    Console.WriteLine("Entered value is not valid. Enter integer please.");
+                }
+            }
+
+        }
+
+        public static int RequestInteger(string requestTitle, int from, int to)
+        {
+            int value;
+
+            while (true)
+            {
+                Console.WriteLine(requestTitle);
+                string userInput = Console.ReadLine();
+                if (int.TryParse(userInput, out value))
+                {
+                    if (value >= from && value < to)
+                    {
+                        return value;
+                    } else
+                    {
+                        Console.WriteLine($"Entered value is not valid. Enter from {from} up to {to} please.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Entered value is not valid. Enter integer please.");
+                }
+            }
+
         }
     }
 }
