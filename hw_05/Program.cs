@@ -157,16 +157,15 @@ namespace hw_05
                     Console.WriteLine("Entered value is not valid. Enter integer please.");
                 }
             }
-
         }
 
         public static int RequestInteger(string requestTitle)
         {
+            Console.WriteLine(requestTitle);
             int value;
 
             while (true)
             {
-                Console.WriteLine(requestTitle);
                 string userInput = Console.ReadLine();
                 if (int.TryParse(userInput, out value))
                 {
@@ -177,16 +176,15 @@ namespace hw_05
                     Console.WriteLine("Entered value is not valid. Enter integer please.");
                 }
             }
-
         }
 
         public static int RequestInteger(string requestTitle, int from, int to)
         {
+            Console.WriteLine(requestTitle);
             int value;
 
             while (true)
             {
-                Console.WriteLine(requestTitle);
                 string userInput = Console.ReadLine();
                 if (int.TryParse(userInput, out value))
                 {
@@ -203,7 +201,6 @@ namespace hw_05
                     Console.WriteLine("Entered value is not valid. Enter integer please.");
                 }
             }
-
         }
     }
 }
