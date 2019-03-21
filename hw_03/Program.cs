@@ -64,7 +64,7 @@ namespace hw_03
         {
             int firstOperand = RequestInteger("Enter first integer:");
             int secondOperand = RequestInteger("Enter second integer:");
-            string operand = RequestOperand("Enter operand:");
+            Operands operand = RequestOperand("Enter operand + or - :");
             int calculationResult = Calculate(firstOperand, secondOperand, operand);
             int userCalculationResult = RequestInteger("Enter calculation result:");
             bool isCorrect = CheckEquality(calculationResult, userCalculationResult);
@@ -77,16 +77,50 @@ namespace hw_03
             }
         }
 
+       public enum Operands
+        {
+            Plus,
+            Minus
+        }
+
         public static int RequestInteger(string requestTitle)
         {
             Console.WriteLine(requestTitle);
-            return Convert.ToInt32(Console.ReadLine());
+            int value;
+
+            while (true)
+            {
+                string userInput = Console.ReadLine();
+                if (int.TryParse(userInput, out value))
+                {
+                    return value;
+                }
+                else
+                {
+                    Console.WriteLine("Entered value is not valid. Enter integer please.");
+                }
+            }
         }
 
-        public static string RequestOperand(string requestTitle)
+        public static Operands RequestOperand(string requestTitle)
         {
             Console.WriteLine(requestTitle);
-            return Console.ReadLine();
+            while (true)
+            {
+                string operand = Console.ReadLine();
+                if (operand == "+")
+                {
+                    return Operands.Plus;
+                }
+                else if (operand == "-")
+                {
+                    return Operands.Minus;
+                }
+                else
+                {
+                    Console.WriteLine("Entered value is not valid. Enter valid operand please.");
+                }
+            }
         }
 
         public static int GetSum(int value1, int value2)
@@ -101,13 +135,13 @@ namespace hw_03
             return value1 - value2;
         }
 
-        public static int Calculate(int value1, int value2, string operand)
+        public static int Calculate(int value1, int value2, Operands operand)
         {
             switch (operand)
             {
-                case "+":
+                case Operands.Plus:
                     return GetSum(value1, value2);
-                case "-":
+                case Operands.Minus:
                     return GetDiff(value1, value2);
                 default:
                     return GetSum(value1, value2);
