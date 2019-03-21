@@ -15,6 +15,10 @@ namespace practice_21_03_2019
             CreateMixedArray();
             Console.WriteLine();
 
+            Console.WriteLine("Task 3");
+            ArrayMaxValue();
+            Console.WriteLine();
+
             Console.Read();
         }
 
@@ -44,6 +48,36 @@ namespace practice_21_03_2019
             {
                 Console.Write($"{mixedArray[i]} ");
             }
+        }
+
+        public static void ArrayMaxValue()
+        {
+            int[] randomArr = new int[13];
+            Random randomGenerator = new Random();
+            for (int i = 0; i < 13; i++)
+            {
+                randomArr[i] = randomGenerator.Next(0, 100);
+            }
+
+            Console.WriteLine("Random array values: ");
+            for (int i = 0; i < randomArr.Length; i++)
+            {
+                Console.Write($"{randomArr[i]} ");
+            }
+
+            Console.WriteLine();
+
+            int maxValue = 0;
+
+            for (int i = 0; i < randomArr.Length; i++)
+            {
+                if (randomArr[i] > maxValue)
+                {
+                    maxValue = randomArr[i];
+                }
+            }
+
+            Console.WriteLine($"Max value in array: {maxValue}");
         }
     }
 }
