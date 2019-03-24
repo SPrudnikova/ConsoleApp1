@@ -73,19 +73,21 @@ namespace hw_06
             StringInfo[] longestWords = GetLongestWords(stringInfoArr);
             StringInfo[] shortestWords = GetShortestWords(stringInfoArr);
 
-            UpdateStringInfo[] closestShortestWords = GetClosestStrings(longestWords, shortestWords, inputString.Length);
-            UpdateStringInfo[] closestLongestWords = GetClosestStrings(shortestWords, longestWords, inputString.Length);
-            UpdateStringInfo[] resultToUpdate = new UpdateStringInfo[closestShortestWords.Length + closestLongestWords.Length];
-            closestShortestWords.CopyTo(resultToUpdate, 0);
-            closestLongestWords.CopyTo(resultToUpdate, closestShortestWords.Length);
+            StringInfo[] resultArr = new StringInfo[stringInfoArr.Length];
+            stringInfoArr.CopyTo(resultArr, 0);
 
-            foreach (UpdateStringInfo item in resultToUpdate)
+            foreach (StringInfo longestWord in longestWords)
             {
-                stringInfoArr[item.InitialIndex].Value = item.NewValue;
+                resultArr[longestWord.IndexInArr].Value = GetClosestStringInfo(longestWord, shortestWords, inputString.Length).Value;
+            }
+
+            foreach (StringInfo shortestWord in shortestWords)
+            {
+                resultArr[shortestWord.IndexInArr].Value = GetClosestStringInfo(shortestWord, longestWords, inputString.Length).Value;
             }
 
             string resultString = String.Empty;
-            foreach (StringInfo item in stringInfoArr)
+            foreach (StringInfo item in resultArr)
             {
                 resultString = resultString + item.Value;
             }
@@ -143,18 +145,6 @@ namespace hw_06
                 IndexInString = indexInString;
                 IndexInArr = indexInArr;
                 Value = String.Empty;
-            }
-        }
-
-        public struct UpdateStringInfo
-        {
-            public int InitialIndex;
-            public string NewValue;
-
-            public UpdateStringInfo(int initialIndex, string newValue)
-            {
-                InitialIndex = initialIndex;
-                NewValue = newValue;
             }
         }
 
@@ -260,33 +250,25 @@ namespace hw_06
             return Array.FindAll(stringInfoArr, s => s.Value.Length == shortestWordLength && s.IsWord);
         }
 
-        public static UpdateStringInfo[] GetClosestStrings(StringInfo[] stringsTarget, StringInfo[] stringsSource, int maxDistance)
+        public static StringInfo GetClosestStringInfo(StringInfo stringTarget, StringInfo[] stringsSource, int maxDistance)
         {
-            UpdateStringInfo[] closestStrings = new UpdateStringInfo[stringsTarget.Length];
-
             StringInfo closestString = stringsSource[0];
-            for (int i = 0; i < stringsTarget.Length; i++)
+            int minDistance = maxDistance;
+
+            foreach (StringInfo currentSource in stringsSource)
             {
-                StringInfo currentTarget = stringsTarget[i];
-                int minDistance = maxDistance;
+                int currentDistance = stringTarget.IndexInString < currentSource.IndexInString ?
+                    currentSource.IndexInString - (stringTarget.IndexInString + stringTarget.Value.Length) :
+                    stringTarget.IndexInString - (currentSource.IndexInString + currentSource.Value.Length);
 
-                foreach (StringInfo currentSource in stringsSource)
+                if (currentDistance < minDistance)
                 {
-                    int currentDistance = currentTarget.IndexInString < currentSource.IndexInString ?
-                        currentSource.IndexInString - (currentTarget.IndexInString + currentTarget.Value.Length) :
-                        currentTarget.IndexInString - (currentSource.IndexInString + currentSource.Value.Length);
-
-                    if (currentDistance < minDistance)
-                    {
-                        minDistance = currentDistance;
-                        closestString = currentSource;
-                    }
+                    minDistance = currentDistance;
+                    closestString = currentSource;
                 }
-
-                closestStrings[i] = new UpdateStringInfo(currentTarget.IndexInArr, closestString.Value);
             }
 
-            return closestStrings;
+            return closestString;
         }
 
         public static string RequestInput()
