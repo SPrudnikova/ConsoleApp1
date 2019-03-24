@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections;
+using System.Linq;
 
 namespace hw_06
 {
@@ -73,27 +73,21 @@ namespace hw_06
             StringInfo[] longestWords = GetLongestWords(stringInfoArr);
             StringInfo[] shortestWords = GetShortestWords(stringInfoArr);
 
-            StringInfo[] resultArr = new StringInfo[stringInfoArr.Length];
-            stringInfoArr.CopyTo(resultArr, 0);
+            string[] resultArr = stringInfoArr.Select(stringInfo => stringInfo.Value).ToArray();
 
             foreach (StringInfo longestWord in longestWords)
             {
-                resultArr[longestWord.IndexInArr].Value = GetClosestStringInfo(longestWord, shortestWords, inputString.Length).Value;
+                resultArr[longestWord.IndexInArr] = GetClosestStringInfo(longestWord, shortestWords, inputString.Length).Value;
             }
 
             foreach (StringInfo shortestWord in shortestWords)
             {
-                resultArr[shortestWord.IndexInArr].Value = GetClosestStringInfo(shortestWord, longestWords, inputString.Length).Value;
+                resultArr[shortestWord.IndexInArr] = GetClosestStringInfo(shortestWord, longestWords, inputString.Length).Value;
             }
 
-            string resultString = String.Empty;
-            foreach (StringInfo item in resultArr)
-            {
-                resultString = resultString + item.Value;
-            }
-
+            string separator = String.Empty;
             Console.WriteLine("Swap result:");
-            Console.WriteLine(resultString);
+            Console.WriteLine(String.Join(separator, resultArr));
         }
 
         public static void Task2c()
