@@ -30,11 +30,7 @@ namespace hw_05
             Console.WriteLine($"Enter {arrSize} integer to fill an array");
             int[] userArr = FillArrayByUser(new int[arrSize], 0, arrSize);
 
-            int[] resultArr = new int[arrSize];
-            for (int i = 0; i < arrSize; i++)
-            {
-                resultArr[i] = userArr[i] + randomArr[i];
-            }
+            int[] resultArr = SumArraysValues(randomArr, userArr);
 
             Console.WriteLine("Random array values:");
             PrintArray(randomArr);
@@ -83,7 +79,6 @@ namespace hw_05
 
             Console.WriteLine("Result array:");
             PrintArray(randomArr);
-
         }
 
         public static void PrintArray(int[] arr)
@@ -124,6 +119,28 @@ namespace hw_05
             }
 
             return arr;
+        }
+
+        public static int[] SumArraysValues (int[] arr1, int[] arr2)
+        {
+            int[] longestArr = arr1.Length > arr2.Length ? arr1 : arr2;
+            int[] shortestArr = arr1.Length <= arr2.Length ? arr1 : arr2;
+            int maxLength = longestArr.Length;
+            int minLength = shortestArr.Length;
+            int[] resultArr = new int[maxLength];
+
+            for (int i = 0; i < minLength; i++)
+            {
+                resultArr[i] = arr1[i] + arr2[i];
+            }
+
+            int lengthDiff = maxLength - minLength;
+            for (int i = 0; i < lengthDiff; i++)
+            {
+                resultArr[minLength + i] = longestArr[minLength + i];
+            }
+
+            return resultArr;
         }
 
         public static T[] Reverse<T>(T[] arr)
