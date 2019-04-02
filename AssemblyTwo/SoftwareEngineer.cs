@@ -5,14 +5,14 @@ namespace AssemblyTwo
 {
     class SoftwareEngineer: Developer
     {
-        public static void DisplayProtectedVacationDurationInherit()
+        public override void DisplayProtectedVacationDuration()
         {
-            Console.WriteLine($"Protected vacation duration from method in assembly two: {Developer.VacationDurationProtected}");
+            Console.WriteLine($"SoftwareEngineer method: Protected vacation duration: {SoftwareEngineer.VacationDurationProtected}");
         }
 
-        public static void DisplayProtectedInternalVacationDurationInherit()
+        public void DisplayProtectedInternalVacationDuration()
         {
-            Console.WriteLine($"Protected internal vacation duration from method in assembly two: {Developer.VacationDurationProtectedInternal}");
+            Console.WriteLine($"SoftwareEngineer method: Protected internal vacation duration: {SoftwareEngineer.VacationDurationProtectedInternal}");
         }
 
     }

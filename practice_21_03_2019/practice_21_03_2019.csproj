@@ -49,5 +49,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ConsoleApp1\ConsoleApp1.csproj">
+      <Project>{e15ec118-d721-4dc4-9ba2-d9d3262520fc}</Project>
+      <Name>ConsoleApp1</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\hw_05\hw_05.csproj">
+      <Project>{deb5099c-7bf4-431a-87ee-4405b113ff75}</Project>
+      <Name>hw_05</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

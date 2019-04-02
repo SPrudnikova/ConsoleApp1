@@ -4,14 +4,14 @@ namespace AssemblyOne
 {
     public class Developer : Employee
     {
-        public static void DisplayProtectedVacationDuration ()
+        public override void DisplayProtectedVacationDuration ()
         {
-            Console.WriteLine($"Protected vacation duration from method: {Developer.VacationDurationProtected}");
+            Console.WriteLine($"Developer method: Protected vacation duration: {Developer.VacationDurationProtected}");
         }
 
-        public static void DisplayPrivateProtectedVacationDuration()
+        public override void DisplayPrivateProtectedVacationDuration()
         {
-            Console.WriteLine($"Private protected vacation duration from method: {Developer.VacationDurationPrivateProtected}");
+            Console.WriteLine($"Developer method: Private protected vacation duration: {Developer.VacationDurationPrivateProtected}");
         }
     }
 }
