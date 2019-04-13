@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7AE1768A-FF91-4AFD-87BB-BA826CCCA5FE}</ProjectGuid>
+    <ProjectGuid>{52EE1518-BCCD-44C7-8CF3-A1FEAD260767}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>practice_21_03_2019</RootNamespace>
-    <AssemblyName>practice_21_03_2019</AssemblyName>
+    <RootNamespace>AssemblyTwo</RootNamespace>
+    <AssemblyName>AssemblyTwo</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -45,18 +45,15 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SoftwareEngineer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ConsoleApp1\ConsoleApp1.csproj">
-      <Project>{e15ec118-d721-4dc4-9ba2-d9d3262520fc}</Project>
-      <Name>ConsoleApp1</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\hw_05\hw_05.csproj">
-      <Project>{deb5099c-7bf4-431a-87ee-4405b113ff75}</Project>
-      <Name>hw_05</Name>
+    <ProjectReference Include="..\AssemblyOne\AssemblyOne.csproj">
+      <Project>{b036cdf2-6cb7-4a4a-ad60-08bf50e4e68f}</Project>
+      <Name>AssemblyOne</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
