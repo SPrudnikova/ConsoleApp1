@@ -4,12 +4,13 @@ namespace hw_13
 {
     class Stack
     {
-        private const int capacity = 10;
+        public readonly int capacity;
+        public int stackSize { get; private set; }
         private object[] stack { get; set; }
-        private int stackSize { get; set; }
 
         public Stack()
         {
+            capacity = 10;
             stackSize = 0;
             stack = new object[capacity];
         }

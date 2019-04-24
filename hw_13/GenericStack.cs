@@ -2,12 +2,13 @@
 {
     class GenericStack<T>
     {
-        private const int capacity = 10;
+        public readonly int capacity;
+        public int stackSize { get; set; }
         private T[] stack { get; set; }
-        private int stackSize { get; set; }
 
         public GenericStack()
         {
+            capacity = 10;
             stackSize = 0;
             stack = new T[capacity];
         }
