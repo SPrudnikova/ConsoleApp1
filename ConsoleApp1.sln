@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssemblyOne", "AssemblyOne\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssemblyTwo", "AssemblyTwo\AssemblyTwo.csproj", "{52EE1518-BCCD-44C7-8CF3-A1FEAD260767}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hw_13", "hw_13\hw_13.csproj", "{9662DF05-31C1-4027-A8D7-0464691DA47F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{52EE1518-BCCD-44C7-8CF3-A1FEAD260767}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52EE1518-BCCD-44C7-8CF3-A1FEAD260767}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52EE1518-BCCD-44C7-8CF3-A1FEAD260767}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9662DF05-31C1-4027-A8D7-0464691DA47F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9662DF05-31C1-4027-A8D7-0464691DA47F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9662DF05-31C1-4027-A8D7-0464691DA47F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9662DF05-31C1-4027-A8D7-0464691DA47F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
