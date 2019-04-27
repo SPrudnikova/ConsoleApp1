@@ -1,0 +1,9 @@
+2019-04-27 22:15:16,917 INFO [1] LOGGER - Project name: hw_10
+2019-04-27 22:15:16,946 INFO [1] LOGGER - Start shapes array initialization
+2019-04-27 22:15:16,949 INFO [1] LOGGER - Start hw_10.Circle area calculating
+2019-04-27 22:15:16,953 INFO [1] LOGGER - Start printing Circle information into console.
+2019-04-27 22:15:16,958 INFO [1] LOGGER - Start hw_10.Square area calculating
+2019-04-27 22:15:16,962 INFO [1] LOGGER - Start printing Square information into console.
+2019-04-27 22:15:16,967 INFO [1] LOGGER - Start hw_10.Triangle area calculating
+2019-04-27 22:15:16,974 INFO [1] LOGGER - Start printing Triangle information into console.
+2019-04-27 22:15:16,980 INFO [1] LOGGER - Finished successfully
