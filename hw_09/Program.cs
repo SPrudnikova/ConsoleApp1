@@ -17,9 +17,9 @@ namespace hw_09
             Song song = new Song(name, author, year, duration, genre);
             var songData = Song.GetSongData(song);
 
-            Console.WriteLine(songData);
-            Console.WriteLine(song.Genre);
-            Console.WriteLine(JsonConvert.SerializeObject(songData));
+            Console.WriteLine($"Song data: {songData}");
+            Console.WriteLine($"Song genre: {song.Genre}");
+            Console.WriteLine($"Serialized song data: {JsonConvert.SerializeObject(songData)}");
 
             Console.Read();
         }
