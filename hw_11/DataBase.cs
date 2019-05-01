@@ -9,6 +9,7 @@ namespace hw_11
 
         static DataBase()
         {
+            Logger.Log.Info("Start create database");
             Motorcycles = new Dictionary<Guid, Motorcycle>();
         }
     }

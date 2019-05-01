@@ -12,7 +12,8 @@ namespace hw_11
 
         public Motorcycle(string name, string model, int year, int odometer)
         {
-            Id = new Guid();
+            Logger.Log.Info("Start create new motorcycle");
+            Id = Guid.NewGuid();
             Name = name;
             Model = model;
             Year = year;
